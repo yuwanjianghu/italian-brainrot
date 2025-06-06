@@ -1,0 +1,458 @@
+/* Basic reset and global styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    scroll-behavior: smooth; /* Smooth scroll, CSS takes precedence over JS */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: #007bff; /* Blue color example. Could use Italian flag colors */
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: rgba(255,255,255,0.2);
+    color: #f0f0f0;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle .arrow {
+    font-size: 0.8em;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle .arrow,
+.dropdown-toggle[aria-expanded="true"] .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #007bff; /* Match header background */
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    list-style: none;
+    padding: 5px 0;
+    z-index: 1001; /* Higher than header to ensure it's on top */
+    min-width: 160px; /* Minimum width for the dropdown */
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.active-dropdown {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.menu-toggle {
+    display: none; /* Hide hamburger menu button by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main Content Area */
+main section {
+    padding: 60px 0;
+    border-bottom: 1px solid #eee;
+}
+
+main section:last-child {
+    border-bottom: none;
+}
+
+main section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #007bff; /* Match header color */
+    text-align: center;
+}
+
+main section article {
+    margin-bottom: 30px;
+}
+
+main section article h3 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+main section p, main section ul li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+main section ul {
+    padding-left: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #005cbf; /* A deeper blue */
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #FFD700; /* Gold for contrast */
+    color: #333;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffc400;
+    transform: translateY(-2px);
+}
+
+/* Hero extra buttons container */
+.hero-extra-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap; /* Allow button wrapping */
+    justify-content: center;
+    gap: 15px; /* Spacing between buttons */
+}
+
+/* Secondary CTA button style */
+.secondary-cta {
+    background-color: transparent;
+    color: #fff; /* White text for dark background */
+    border: 2px solid #FFD700; /* Use main CTA color for border */
+    padding: 10px 20px; /* Slightly smaller padding */
+}
+
+.secondary-cta:hover {
+    background-color: rgba(255, 215, 0, 0.1); /* Faint yellow background on hover */
+    color: #fff;
+    border-color: #fff; /* White border on hover */
+}
+
+/* Game Card Preview Image */
+.game-preview-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    object-fit: cover; /* Cover the area, may crop */
+    border-radius: 4px 4px 0 0; /* Rounded top corners to match card */
+    margin-bottom: 15px;
+    background-color: #eee; /* Background color while image loads */
+}
+
+/* Ensure game card link styles are correct */
+.gallery-item.game-item {
+    display: block; /* Make the <a> tag behave like a block */
+    text-decoration: none; /* Remove link underline */
+    color: inherit; /* Inherit text color from parent */
+    /* Other card styles are inherited from .gallery-item */
+}
+
+.gallery-item.game-item:hover {
+    /* Optional: enhance existing hover effect */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Deeper shadow on hover */
+}
+
+/* Game Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to cover viewport */
+    z-index: 2000; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if content overflows */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    background-color: #1a1a1a;
+    margin: 5% auto; /* Vertically centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 840px; /* 800px + padding */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    animation: slideIn 0.4s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game-iframe-container {
+    position: relative;
+    width: 100%;
+    /* Responsive height based on 800x600 ratio (600 / 800 = 0.75) */
+    padding-bottom: 75%; 
+    height: 0;
+    background-color: #000;
+}
+
+.game-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Game card style adjustments */
+.gallery-item[data-gamemodal-src]:hover {
+    cursor: pointer;
+}
+
+/* Examples Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.gallery-item h4 {
+    font-size: 1.3rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: #007bff; /* Match header background */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex; /* Shown via JS */
+    }
+
+    nav ul li {
+        margin: 0; /* Remove margin, use padding */
+        text-align: left;
+    }
+
+    nav ul li a {
+        display: block; /* Make link fill the li */
+        padding: 12px 20px; /* Adjust mobile padding */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator line */
+    }
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Mobile dropdown specific styles */
+    .dropdown-menu {
+        position: static; /* On mobile, the dropdown is not absolutely positioned */
+        box-shadow: none;
+        border-radius: 0;
+        background-color: rgba(0,0,0,0.1); /* Slightly darker background to differentiate */
+        padding-left: 15px; /* Indent from the left */
+        min-width: 100%;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 20px 10px 30px; /* Adjust padding, add more left indent */
+        font-size: 0.9em;
+    }
+
+    .dropdown-toggle .arrow {
+        float: right; /* Move arrow to the right */
+        margin-right: 10px;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu button */
+    }
+
+    header .container {
+        flex-wrap: wrap; /* Allow title and menu button to wrap if space is tight */
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    main section h2 {
+        font-size: 1.8rem;
+    }
+} 
