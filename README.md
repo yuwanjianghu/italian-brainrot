@@ -24,4 +24,4 @@ Much like other 'brainrot' trends, Italian Brainrot thrives on **humor, repetiti
 ## More Coming Soon
 
 This project will serve as a hub to document, analyze, and archive the Italian Brainrot trend.
-
+https://italian-brainrot.it.com/
