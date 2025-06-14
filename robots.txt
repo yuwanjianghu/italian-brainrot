@@ -16,4 +16,4 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap location for all crawlers
-Sitemap: https://www.yourdomain.com/sitemap.xml 
+Sitemap: https://italian-brainrot.it.com/sitemap.xml 
