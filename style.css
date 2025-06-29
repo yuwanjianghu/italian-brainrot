@@ -364,21 +364,122 @@ main section ul {
 footer {
     background-color: #333;
     color: #ccc;
-    text-align: center;
-    padding: 30px 0;
+    padding: 40px 0 20px;
     font-size: 0.9rem;
 }
 
-footer p {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: #FFD700;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-section h4 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
     margin-bottom: 8px;
 }
 
-footer a {
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.footer-section ul li a:hover {
     color: #FFD700;
     text-decoration: none;
 }
 
-footer a:hover {
+/* 友情链接特殊样式 */
+.friend-links li a {
+    position: relative;
+    padding-left: 15px;
+}
+
+.friend-links li a::before {
+    content: "🔗";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 0.8em;
+}
+
+.friend-links li a:hover::before {
+    content: "⚡";
+}
+
+/* 社交媒体链接 */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #ccc;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 5px;
+}
+
+.social-links a:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+/* 页脚底部 */
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin-bottom: 8px;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FFD700;
     text-decoration: underline;
 }
 
@@ -454,5 +555,23 @@ footer a:hover {
     }
     main section h2 {
         font-size: 1.8rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-links a {
+        display: block;
+        margin: 5px 0;
     }
 } 
